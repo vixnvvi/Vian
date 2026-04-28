@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vian</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+
+            /* GIF Background */
+            background-image: url(purple.gif);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Glass card */
+        .card {
+            width: 90%;
+            max-width: 420px;
+            padding: 30px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            color: white;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0,0,0,0.6);
+        }
+
+        /* Profile picture */
+        .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            margin-bottom: 15px;
+        }
+
+        /* Username */
+        h1 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .bio {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+
+        /* Icon container */
+        .icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        /* Icon images */
+        .icons img {
+            width: 40px;
+            height: 40px;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .icons img:hover {
+            transform: scale(1.2);
+            opacity: 0.85;
+        }
+
+        /* Views counter */
+        .views {
+            margin-top: 18px;
+            font-size: 0.85rem;
+            opacity: 0.85;
+        }
+
+        /* Responsive */
+        @media (max-width: 500px) {
+            .card {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <!-- PROFILE PICTURE -->
+        <img src="profile.jpg" class="avatar">
+
+        <!-- USERNAME -->
+        <h1>@livianlife</h1>
+
+        <!-- BIO TEXT -->
+        <div class="bio">Live, Laugh, Love ME</div>
+
+        <!-- CLICKABLE ICON IMAGES -->
+        <div class="icons">
+
+            <a href="https://instagram.com/aerxip" target="_blank">
+                <img src="instagram.png" alt="Instagram">
+            </a>
+
+            <a href="https://tiktok.com/vixnvin" target="_blank">
+                <img src="tiktok.png" alt="TikTok">
+            </a>
+
+            <a href="https://open.spotify.com/okksosksosk" target="_blank">
+                <img src="spotify.png" alt="Spotify">
+            </a>
+
+        </div>
+
+        <!-- VIEW COUNTER -->
+        <div class="views">
+            👁 Views: <span id="view-count">Loading...</span>
+        </div>
+
+    </div>
+
+    <!-- SIMPLE FREE VIEW COUNTER SCRIPT -->
+    <script>
+        const namespace = "my-website"; // change this to your site name
+        const key = "visits";
+
+        fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`)
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById("view-count").innerText = data.value;
+            });
+    </script>
+
+ <!-- AUTOPLAY MUSIC -->
+    <!-- Put your music file in the same folder and rename it music.mp3 -->
+    <audio autoplay loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Glow animation -->
+    <style>
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 6px purple;
+            }
+            to {
+                box-shadow: 0 0 18px purple;
+            }
+        }
+    </style>
+
+</body>
+</html>
